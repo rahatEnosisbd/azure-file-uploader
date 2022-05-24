@@ -39,17 +39,6 @@ async function saveData(data:FormType): Promise<string[]>
     });
   }
 
-  // const secondaryContainerClient: ContainerClient =
-  //  new ContainerClient(`https://${storageAccountName}.blob.core.windows.net/${data.containerName}/${data.secondaryContainerName}`)
-
-  // const secondaryContainerExist = await secondaryContainerClient.exists();
-
-  // if (!secondaryContainerExist) {
-  //   secondaryContainerClient.create({
-  //     access: "container",
-  //   });
-  // }
-
   await uploadFileAsBlob(primaryContainerClient, data.secondaryContainerName, data.picture[0])
 
   const returnedBlobUrls: string[] = [];
